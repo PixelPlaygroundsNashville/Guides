@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- SEO Optimized Title -->
+  <title>Pixel Playgrounds Nashville | Podcast, Streamer, Gamer & Comedy Tech Hub</title>
+  <!-- SEO Optimized Meta Description -->
+  <meta name="description" content="Expert tech guides, hardware recommendations, and software tutorials for podcasters, streamers, gamers, and comedians in Nashville, TN. Build your ultimate content creation setup with Pixel Playgrounds Nashville.">
+  <!-- Favicon Placeholder -->
+  <!-- <link rel="icon" type="image/png" href="/path/to/favicon.png"> -->
+  <!-- Canonical URL Placeholder (Important for SEO if site exists elsewhere) -->
+  <!-- <link rel="canonical" href="https://www.yourdomain.com/index.html" /> -->
+
+  <style>
+    /* --- Global Variables --- */
+    :root {
+      --bg-primary: #05080f;
+      --bg-secondary: #10141f;
+      --bg-tertiary: #1a1f2b; /* Card backgrounds */
+      --bg-cta: #1c2b4d; /* Background for specific CTA sections */
+      --text-primary: #e0e0e0;
+      --text-secondary: #a0a0a0;
+      --accent-primary: #00ffff; /* Cyan */
+      --accent-secondary: #7f00ff; /* Violet */
+      --accent-hover: #33ffff;
+      --cta-button: #ffae00; /* Standout Gold/Orange for CTAs */
+      --cta-button-hover: #ffc400;
+      --border-color: #2a2f3b;
+      --font-main: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+      --font-heading: 'Orbitron', 'Teko', 'Rajdhani', sans-serif; /* Kept for visual style */
+    }
+
+    /* --- Reset and Base Styles --- */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-main);
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.7;
+      overflow-x: hidden;
+      background-image: radial-gradient(circle at top right, rgba(127, 0, 255, 0.05), transparent 40%),
+                        radial-gradient(circle at bottom left, rgba(0, 255, 255, 0.05), transparent 50%);
+      background-attachment: fixed;
+    }
+    a { color: var(--accent-primary); text-decoration: none; transition: color 0.3s ease; }
+    a:hover { color: var(--accent-hover); text-decoration: none; }
+    h1, h2, h3, h4, h5, h6 {
+      font-family: var(--font-heading);
+      color: #ffffff;
+      margin-bottom: 18px;
+      letter-spacing: 1px;
+      font-weight: 600;
+    }
+    h1 { font-size: 3.2rem; text-shadow: 0 0 8px rgba(0, 255, 255, 0.4); margin-bottom: 20px; color: #fff; font-weight: 700;} /* H1 more prominent */
+    h2 { font-size: 2.5rem; text-transform: uppercase; }
+    h3 { font-size: 1.8rem; color: var(--accent-primary); }
+    h4 { font-size: 1.4rem; color: #ddd; }
+    p, li { color: var(--text-secondary); margin-bottom: 12px; font-size: 1rem; }
+    ul, ol { list-style-position: inside; margin-bottom: 20px; padding-left: 5px; }
+    ul { list-style-type: none; }
+    ul li::before { content: "\2B22"; color: var(--accent-primary); font-weight: bold; display: inline-block; width: 1em; margin-left: -1em; font-size: 0.8em; margin-right: 0.5em;}
+    strong { color: var(--text-primary); font-weight: 600; }
+
+    /* --- Header --- */
+    header {
+      text-align: center;
+      padding: 90px 20px 110px; /* Adjusted padding */
+      background: linear-gradient(60deg, var(--bg-primary), var(--bg-secondary), #243B55, var(--bg-primary));
+      background-size: 300% 300%;
+      animation: gradientBG 15s ease infinite;
+      position: relative;
+      z-index: 2;
+      border-bottom: 2px solid var(--border-color);
+    }
+    @keyframes gradientBG { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+    header p.subtitle { font-size: 1.3rem; max-width: 800px; margin: 0 auto; color: var(--text-primary); font-style: italic; }
+
+    /* --- Navigation --- */
+    nav {
+      background: rgba(16, 20, 31, 0.85); backdrop-filter: blur(10px);
+      position: sticky; top: 0; z-index: 10;
+      border-bottom: 1px solid var(--border-color);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    }
+    nav ul { display: flex; flex-wrap: wrap; justify-content: center; list-style: none; padding: 15px 0; }
+    nav li { margin: 5px 20px; } /* Reduced margin slightly */
+    nav li::before { content: none; }
+    nav a { color: var(--text-primary); font-weight: bold; font-size: 1rem; padding: 5px 0; border-bottom: 2px solid transparent; transition: color 0.3s ease, border-bottom-color 0.3s ease; }
+    nav a:hover { color: var(--accent-primary); border-bottom-color: var(--accent-primary); text-decoration: none; }
+
+    /* --- Main Container & Sections --- */
+    .container { max-width: 1300px; margin: auto; padding: 40px 25px; position: relative; z-index: 2; }
+    section { padding: 70px 0; border-bottom: 1px solid var(--border-color); margin-bottom: 50px; } /* Reduced padding slightly */
+    section:last-of-type { border-bottom: none; margin-bottom: 0; }
+    .section-title { text-align: center; margin-bottom: 40px; } /* Reduced margin */
+    .section-title h2 { border-bottom: 2px solid var(--accent-primary); display: inline-block; padding-bottom: 10px; }
+    .section-intro { max-width: 800px; margin: 0 auto 35px auto; text-align: center; font-size: 1.1rem; color: var(--text-secondary); } /* Reduced margin */
+
+
+    /* --- Article Card Grid --- */
+    .articles { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 25px; margin-top: 25px; } /* Reduced gap/margin */
+    .article-card { background: var(--bg-tertiary); border: 1px solid var(--border-color); padding: 25px; border-radius: 6px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .article-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0, 255, 255, 0.1); }
+    .article-card h3 { margin-bottom: 15px; font-size: 1.5rem; }
+    .article-card ul { padding-left: 10px; margin-left: 0; }
+    .article-card li { font-size: 0.95rem; color: #bdbdbd; margin-bottom: 8px; }
+    .article-card li::before { font-size: 0.7em; }
+
+
+    /* --- Accordion Styling --- */
+    .accordion { background: var(--bg-secondary); color: var(--text-primary); cursor: pointer; padding: 18px 20px; width: 100%; border: 1px solid var(--border-color); border-radius: 4px; text-align: left; outline: none; font-size: 1.2rem; font-family: var(--font-heading); margin-bottom: 8px; transition: background-color 0.3s ease, color 0.3s ease; position: relative; }
+    .accordion::after { content: '+'; font-size: 1.5rem; color: var(--accent-primary); position: absolute; right: 20px; top: 50%; transform: translateY(-50%); transition: transform 0.3s ease; }
+    .accordion.active::after { content: "-"; } /* Simple change */
+    .accordion:hover, .accordion.active { background-color: var(--bg-tertiary); color: #fff; border-color: var(--accent-primary); }
+    .panel { background: rgba(16, 20, 31, 0.7); max-height: 0; overflow: hidden; transition: max-height 0.5s ease-out, padding 0.5s ease-out; padding: 0 20px; margin-bottom: 10px; border-radius: 0 0 4px 4px; border: 1px solid var(--border-color); border-top: none; }
+    .panel p, .panel ul, .panel h4 { margin: 15px 0; font-size: 0.95rem; }
+    .panel h4 { color: var(--accent-primary); margin-top: 20px; }
+    .panel ul { list-style-type: disc; margin-left: 20px; }
+    .panel ul li::before { content: none; }
+
+    /* --- Tabs Styling --- */
+    .tabs { display: flex; justify-content: center; margin: 30px 0 25px 0; flex-wrap: wrap; border-bottom: 2px solid var(--border-color); padding-bottom: 15px; }
+    .tabs button.tab-btn { background: transparent; border: none; border-bottom: 3px solid transparent; color: var(--text-secondary); padding: 12px 25px; margin: 0 10px; cursor: pointer; transition: background 0.3s, color 0.3s, border-bottom-color 0.3s; font-size: 1.1rem; font-family: var(--font-heading); }
+    .tabs button.tab-btn.active, .tabs button.tab-btn:hover { background: transparent; color: var(--accent-primary); border-bottom-color: var(--accent-primary); }
+    .tab-content { display: none; animation: fadeInContent 0.8s forwards ease-out; padding-top: 20px; }
+    .tab-content.active { display: block; }
+    @keyframes fadeInContent { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+    .guide-section { margin-bottom: 35px; }
+    .guide-section h4 { border-bottom: 1px solid var(--border-color); padding-bottom: 8px; margin-bottom: 15px;}
+
+    /* --- LEAD CAPTURE STYLES --- */
+    .lead-capture-section {
+      background: var(--bg-cta); /* Distinct background */
+      border: 1px solid var(--accent-primary); /* Highlight border */
+      padding: 35px 30px;
+      border-radius: 8px;
+      text-align: center;
+      margin: 50px auto; /* Spacing */
+      max-width: 750px; /* Control width */
+      box-shadow: 0 5px 25px rgba(0, 255, 255, 0.15); /* Subtle glow */
+    }
+    .lead-capture-section h3 {
+      font-size: 1.8rem;
+      color: var(--accent-primary); /* Matches accent */
+      margin-bottom: 10px;
+    }
+    .lead-capture-section p {
+      color: var(--text-primary);
+      margin-bottom: 25px;
+      font-size: 1.1rem;
+    }
+    .lead-capture-section label {
+      display: block; margin: 15px 0 8px;
+      text-align: left; font-weight: bold;
+      color: var(--text-primary); font-size: 0.9rem;
+    }
+    .lead-capture-section input[type="text"],
+    .lead-capture-section input[type="email"] {
+      width: 100%;
+      padding: 12px 15px;
+      margin-bottom: 20px;
+      border: 1px solid var(--border-color);
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      border-radius: 4px;
+      font-size: 1rem;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+     .lead-capture-section input[type="text"]:focus,
+     .lead-capture-section input[type="email"]:focus {
+        outline: none;
+        border-color: var(--accent-primary);
+        box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+     }
+    /* Distinct CTA Button */
+    .cta-button {
+      background: var(--cta-button); /* Standout color */
+      color: var(--bg-primary); /* High contrast text */
+      border: none;
+      padding: 14px 30px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
+      border-radius: 4px;
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 10px;
+      display: inline-block; /* Allows margin auto if needed */
+    }
+    .cta-button:hover {
+        background: var(--cta-button-hover);
+        transform: scale(1.05);
+        box-shadow: 0 0 15px rgba(255, 174, 0, 0.6); /* Glow matching button color */
+    }
+     /* Inline CTA styles */
+    .inline-cta {
+        margin: 30px 0;
+        padding: 20px;
+        background: var(--bg-tertiary);
+        border-left: 4px solid var(--accent-primary);
+        border-radius: 0 4px 4px 0;
+    }
+    .inline-cta p { margin-bottom: 15px; color: var(--text-primary); }
+
+
+    /* --- Footer --- */
+    footer {
+      background: var(--bg-secondary);
+      text-align: center;
+      padding: 30px 20px;
+      font-size: 0.95rem;
+      border-top: 2px solid var(--border-color);
+      margin-top: 60px;
+    }
+    footer p { margin-bottom: 8px; color: var(--text-secondary); }
+    footer a { color: var(--accent-primary); }
+
+    /* --- Particle Background --- */
+    #particle-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
+
+    /* --- Enhanced Fade-In Animation --- */
+    .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    /* --- Contact Section Styling --- */
+     #contact { text-align: center; }
+     .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 40px; max-width: 900px; margin-left: auto; margin-right: auto; }
+     .contact-item { background: var(--bg-tertiary); padding: 25px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; flex-direction: column; align-items: center; text-align: center; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+     .contact-item:hover { transform: translateY(-5px); box-shadow: 0 6px 20px rgba(0, 255, 255, 0.1); }
+     .contact-item svg { width: 40px; height: 40px; fill: var(--accent-primary); margin-bottom: 15px; }
+     .contact-item p { color: var(--text-primary); font-size: 1rem; margin-bottom: 0; }
+     .contact-item a { color: var(--accent-primary); font-weight: bold;}
+
+    /* --- Media Queries --- */
+    @media (max-width: 992px) {
+        h1 {font-size: 2.8rem;}
+        h2 { font-size: 2rem; }
+        .container { padding: 30px 20px; }
+    }
+    @media (max-width: 768px) {
+      h1 { font-size: 2.5rem; letter-spacing: 2px;}
+      header p.subtitle { font-size: 1.1rem; }
+      nav li { margin: 5px 12px; } /* Slightly tighter */
+      .articles { grid-template-columns: 1fr; }
+      .tabs { flex-direction: column; align-items: center; border-bottom: none;}
+      .tabs button.tab-btn { margin: 5px 0; width: 80%; text-align: center; border-bottom: 2px solid var(--border-color); }
+      .tabs button.tab-btn.active { border-color: var(--accent-primary); }
+      .contact-grid { grid-template-columns: 1fr; }
+       .lead-capture-section { max-width: 90%; margin: 40px auto; }
+    }
+     @media (max-width: 480px) {
+        h1 { font-size: 2.2rem; }
+        h2 { font-size: 1.8rem; }
+        h3 { font-size: 1.5rem; }
+         .cta-button { font-size: 1rem; padding: 12px 25px; }
+     }
+  </style>
+   <!-- Removed sci-fi fonts to lean more professional, keeping Orbitron as it bridges tech/modern -->
+   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <canvas id="particle-canvas"></canvas>
+
+  <header>
+    <!-- H1 Optimized for SEO -->
+    <h1>Nashville Content Creator Tech Hub: Pixel Playgrounds</h1>
+    <p class="subtitle">Your expert resource in Nashville for Podcasting, Streaming, Gaming & Comedy tech. Master your setup with our in-depth guides and local insights.</p>
+  </header>
+
+  <nav>
+    <ul>
+      <!-- Clearer Nav Links -->
+      <li><a href="#home">Home</a></li>
+      <li><a href="#hardware">Hardware Guides</a></li>
+      <li><a href="#software">Software Tutorials</a></li>
+      <li><a href="#podcasters">For Podcasters</a></li>
+      <li><a href="#streamers">For Streamers</a></li>
+      <li><a href="#gamers">For Gamers</a></li>
+      <li><a href="#comedians">For Comedians</a></li>
+      <li><a href="#connect">Connect</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <!-- Home Section -->
+    <section id="home" class="fade-in">
+      <div class="section-title">
+        <h2>Welcome, Nashville Creators!</h2>
+      </div>
+      <p class="section-intro">You've arrived at Pixel Playgrounds Nashville – your dedicated knowledge base for navigating the technology of content creation right here in Music City. We provide practical guides, hardware breakdowns, and software strategies designed for Nashville's podcasters, streamers, gamers, and comedians. Whether you're launching your first project or optimizing a complex setup, our goal is to empower you with the technical know-how to succeed.</p>
+
+      <!-- *** LEAD CAPTURE MONSTER - Section 1: High-Value General CTA *** -->
+      <div class="lead-capture-section fade-in" style="transition-delay: 0.2s;">
+        <h3>Level Up Your Nashville Creator Game!</h3>
+        <p>Join the Pixel Playgrounds Nashville email list for exclusive tips, local creator spotlights, tech deals, and downloadable resources tailored for content creators in Music City. Be the first to know!</p>
+        <form action="#" method="POST"> <!-- Replace # with your form handling URL -->
+           <label for="home-name">Your Name</label>
+           <input type="text" id="home-name" name="name" placeholder="Enter Your Name" required>
+           <label for="home-email">Your Email</label>
+           <input type="email" id="home-email" name="email" placeholder="you@example.com" required>
+           <!-- Add hidden field for list segmentation if desired -->
+           <!-- <input type="hidden" name="list_segment" value="nashville_general"> -->
+           <button type="submit" class="cta-button">Get Insider Access!</button>
+        </form>
+         <p style="font-size: 0.8rem; margin-top: 15px; color: var(--text-secondary);">We respect your privacy. No spam, just value for Nashville creators.</p>
+      </div>
+    </section>
+
+    <!-- HARDWARE GUIDES -->
+    <section id="hardware" class="fade-in">
+      <div class="section-title">
+        <h2>Hardware Guides for Nashville Setups</h2>
+      </div>
+      <p class="section-intro">Choosing the right gear is foundational. Explore detailed recommendations on microphones, cameras, interfaces, lighting, and computer components ideal for content creation in various Nashville environments – from home studios to portable rigs.</p>
+      <div class="articles">
+         <!-- Content identical to previous good version, just ensuring terminology is neutral -->
+         <div class="article-card">
+          <h3>Audio Capture & Interfaces</h3>
+          <h4>Core Components: Microphones</h4>
+           <ul>
+            <li><strong>Entry Level (USB):</strong> Samson Q2U, Audio-Technica AT2100x (Dynamic, great noise rejection, flexible XLR/USB), Rode NT-USB Mini (Condenser, clear sound, simple setup), Elgato Wave:3 (Condenser, integrated mixing). <em>Suitable for: Beginners, simple setups, home studios in Nashville.</em></li>
+            <li><strong>Professional (XLR Dynamic):</strong> Shure SM7B (Industry standard, needs gain), Electro-Voice RE20 (Broadcast classic, minimal proximity effect), Rode Procaster. <em>Suitable for: Pro voiceovers, minimizing room noise, common in Nashville studios.</em></li>
+             <li><strong>Professional (XLR Condenser):</strong> Neumann U87 Ai (Legendary studio mic), Aston Spirit, Rode NT1 (Modern clarity, low noise). <em>Suitable for: Treated studios, detailed vocals, music recording.</em></li>
+           </ul>
+           <h4>Signal Path: Interfaces & Mixers</h4>
+           <ul>
+              <li><strong>Interfaces:</strong> Focusrite Scarlett series (Popular, reliable), Universal Audio Apollo (Premium, DSP), Motu M-Series (Great value, metering).</li>
+              <li><strong>Mixers/Integrated Studios:</strong> RØDECaster Pro II/Duo (Podcast/Stream focus), GoXLR (Streamer tools), Zoom PodTrak P4/P8 (Portable podcasting).</li>
+              <li><strong>Preamp Boosters:</strong> Cloudlifter CL-1, FetHead. Often necessary for mics like the SM7B.</li>
+           </ul>
+           <!-- Image Alt Text SEO Comment: <img src="images/audio-gear.jpg" alt="Various microphones and audio interfaces for Nashville podcasters"> -->
+        </div>
+        <div class="article-card">
+           <h3>Video & Streaming Equipment</h3>
+           <h4>Cameras & Lenses</h4>
+           <ul>
+             <li><strong>Webcams:</strong> Logitech C920s/C922 (Solid 1080p), Logitech Brio/StreamCam (4K/60fps), Elgato Facecam (Streamer-optimized).</li>
+             <li><strong>Mirrorless/DSLRs:</strong> Sony ZV-E10/A6x00 (Autofocus, compact), Canon EOS M50 MkII (User-friendly), Panasonic Lumix GH5/GH6 (Video focus). Needs capture card.</li>
+             <li><strong>Lenses:</strong> Prime lenses (e.g., 35mm f/1.8) for bokeh, kit zooms for versatility.</li>
+           </ul>
+          <h4>Lighting & Support</h4>
+           <ul>
+              <li><strong>Key Lighting:</strong> Elgato Key Light/Air, Godox SL60W (LED panels).</li>
+              <li><strong>Fill/Backlighting:</strong> Smaller LEDs, RGB accents (Philips Hue, Govee).</li>
+              <li><strong>Ring Lights:</strong> Direct lighting, good for single subjects.</li>
+              <li><strong>Support:</strong> Tripods (Manfrotto), Monitor Arms, Camera Cages (SmallRig).</li>
+           </ul>
+           <h4>Video Signal Path</h4>
+           <ul>
+              <li><strong>Capture Cards:</strong> Elgato Cam Link 4K, HD60 X, AverMedia Live Gamer.</li>
+               <li><strong>Switchers:</strong> Blackmagic Design ATEM Mini series (For multi-camera Nashville productions).</li>
+           </ul>
+            <!-- Image Alt Text SEO Comment: <img src="images/video-streaming-gear.jpg" alt="Camera, lights, and capture card setup for Nashville streamers"> -->
+        </div>
+        <div class="article-card">
+          <h3>Computer Specs, Peripherals & Ergonomics</h3>
+           <h4>Computer Components</h4>
+          <ul>
+            <li><strong>CPU:</strong> Intel Core i5/i7/i9 or AMD Ryzen 5/7/9 (current gen). More cores help with encoding/editing.</li>
+            <li><strong>GPU:</strong> NVIDIA GeForce RTX (Use NVENC for streaming) or AMD Radeon RX. Needed for gaming, accelerates video edits.</li>
+            <li><strong>RAM:</strong> 16GB min, 32GB+ recommended for heavy tasks.</li>
+            <li><strong>Storage:</strong> Fast NVMe SSD (OS/Apps/Projects), larger SSD/HDD for storage.</li>
+          </ul>
+           <h4>Control & Input Devices</h4>
+            <ul>
+                <li><strong>Keyboards:</strong> Mechanical, ergonomic options.</li>
+                <li><strong>Mice:</strong> High DPI, ergonomic shapes.</li>
+                <li><strong>Stream Control:</strong> Elgato Stream Deck (Macros, scene switching).</li>
+                <li><strong>Monitors:</strong> High refresh rate (Gaming), color-accurate IPS (Editing), multiple for productivity.</li>
+            </ul>
+           <h4>Workspace Ergonomics</h4>
+           <ul>
+              <li><strong>Chairs:</strong> Quality ergonomic chairs (support local Nashville suppliers if known!).</li>
+              <li><strong>Acoustic Treatment:</strong> Foam panels, bass traps, diffusers. Crucial for good audio in Nashville homes/apartments.</li>
+              <li><strong>Cable Management:</strong> Sleeves, raceways, ties. Keep your space clean.</li>
+           </ul>
+           <!-- Image Alt Text SEO Comment: <img src="images/computer-setup-ergonomics.jpg" alt="Ergonomic chair and clean desk setup for Nashville gamers"> -->
+        </div>
+      </div>
+
+      <!-- *** LEAD CAPTURE MONSTER - Section 2: Inline Resource CTA *** -->
+       <div class="inline-cta fade-in">
+           <h3>Need Help Choosing Gear in Nashville?</h3>
+           <p>Get our FREE Nashville Creator Hardware Checklist! Covers essential recommendations for different budgets and creation types.</p>
+           <a href="#lead-capture-hardware" class="cta-button">Download Checklist</a>
+       </div>
+    </section>
+
+    <!-- SOFTWARE TUTORIALS -->
+    <section id="software" class="fade-in">
+      <div class="section-title">
+        <h2>Software Tutorials for Creators</h2>
+      </div>
+      <p class="section-intro">Master the tools of the trade. Find guides and walkthroughs for audio editing software (DAWs), video editors (NLEs), streaming platforms like OBS, and essential utilities used by successful Nashville creators.</p>
+      <div class="articles">
+          <!-- Content identical to previous good version, neutral terminology -->
+          <div class="article-card">
+            <h3>Audio Production & Editing (DAWs)</h3>
+             <ul>
+               <li><strong>Free & Accessible:</strong> Audacity, GarageBand (Mac/iOS), Cakewalk by Bandlab (Win).</li>
+               <li><strong>Podcast/Voiceover Focused:</strong> Adobe Audition, Hindenburg Journalist.</li>
+               <li><strong>Music & Advanced Audio:</strong> Reaper, Logic Pro X (Mac), Pro Tools, Ableton Live.</li>
+               <li><strong>AI & Cloud Tools:</strong> Adobe Podcast Enhance, Descript (Transcription editing).</li>
+               <li><strong>Essential Plugins (VST/AU/AAX):</strong> EQ, Compression, Noise Reduction (iZotope RX), De-Esser, Limiter. Find what works for your Nashville studio sound.</li>
+            </ul>
+          </div>
+        <div class="article-card">
+           <h3>Video Production & Editing (NLEs)</h3>
+           <ul>
+             <li><strong>Free & Powerful:</strong> DaVinci Resolve (Great color correction).</li>
+             <li><strong>Subscription Pro:</strong> Adobe Premiere Pro, Final Cut Pro (Mac).</li>
+             <li><strong>Accessible & Capable:</strong> CapCut (Mobile/Desktop), OpenShot.</li>
+             <li><strong>Motion Graphics & VFX:</strong> Adobe After Effects, Apple Motion.</li>
+             <li><strong>Screen Recording:</strong> OBS Studio, Camtasia, built-in OS tools.</li>
+           </ul>
+        </div>
+        <div class="article-card">
+            <h3>Streaming & Broadcasting Software</h3>
+            <ul>
+               <li><strong>Primary Broadcasters:</strong> OBS Studio (Free, powerful), Streamlabs Desktop (User-friendly), XSplit. Master these for your Nashville streams.</li>
+               <li><strong>Streaming Utilities:</strong> Restream.io (Multistreaming), StreamElements / Streamlabs (Overlays, alerts), Touch Portal / LioranBoard (Control).</li>
+               <li><strong>Remote Guests:</strong> VDO.Ninja, Zoom/Skype (Optimize audio!), Riverside.fm / SquadCast.</li>
+               <li><strong>Optimization:</strong> Learn bitrate/resolution/FPS settings for reliable Nashville streams. Understand encoders (NVENC, AMF, x264).</li>
+            </ul>
+        </div>
+      </div>
+       <!-- *** LEAD CAPTURE MONSTER - Section 3: Inline Resource CTA *** -->
+       <div class="inline-cta fade-in">
+           <h3>Struggling with OBS Setup in Nashville?</h3>
+           <p>Grab our FREE OBS Quick Start Guide, optimized for stable streaming even with challenging Music City internet speeds.</p>
+           <a href="#lead-capture-software" class="cta-button">Get the OBS Guide</a>
+       </div>
+    </section>
+
+    <!-- PODCASTERS -->
+    <section id="podcasters" class="fade-in">
+       <div class="section-title">
+        <h2>Podcasting Resources for Nashville</h2>
+      </div>
+       <p class="section-intro">Launch or level up your podcast from Music City. Explore our guides covering everything from beginner setups using minimal gear to professional multi-host Nashville studio configurations.</p>
+       <div class="tabs">
+        <button class="tab-btn active" data-tab="podcast-guide">Comprehensive Guide</button>
+        <button class="tab-btn" data-tab="podcast-setups">Example Setups</button>
+      </div>
+      <div id="podcast-guide" class="tab-content active">
+        <!-- Content identical to previous good version, neutral terminology, add Nashville keyword -->
+        <h3>The Nashville Podcaster's Handbook</h3>
+         <div class="guide-section">
+             <h4>I. Planning & Recording Environment</h4>
+             <ul>
+                 <li><strong>Define Your Show:</strong> Niche, format, target audience in Nashville.</li>
+                 <li><strong>Acoustics Matter:</strong> Minimize reverb/echo in your recording space. Soft surfaces absorb sound.</li>
+                 <li><strong>DIY Sound Treatment:</strong> Blankets, rugs, furniture. Acoustic panels improve quality significantly.</li>
+             </ul>
+        </div>
+         <div class="guide-section">
+            <h4>II. Gear Selection & Setup</h4>
+             <ul>
+                <li><strong>Microphone Choice:</strong> Dynamic mics (Shure SM58/SM7B) often better for untreated rooms. Condensers (Rode NT1) capture detail but need quieter spaces. USB vs. XLR (XLR offers more flexibility).</li>
+                <li><strong>Interface/Mixer:</strong> Required for XLR mics. Consider number of inputs needed for your Nashville podcast.</li>
+                <li><strong>Headphones:</strong> Closed-back types prevent mic bleed (e.g., ATH-M series).</li>
+                <li><strong>Accessories:</strong> Quality cables, pop filter, mic stand.</li>
+             </ul>
+        </div>
+          <div class="guide-section">
+            <h4>III. Recording & Editing Techniques</h4>
+            <ul>
+                <li><strong>Gain Staging:</strong> Record levels peaking around -12dB to -6dB to avoid distortion.</li>
+                <li><strong>Recording Software (DAW):</strong> Audacity, GarageBand, Reaper, Audition. Record each speaker separately (multi-track).</li>
+                <li><strong>Editing Workflow:</strong> Cut mistakes, long pauses. Arrange segments. Add music/SFX.</li>
+                 <li><strong>Basic Processing:</strong> Noise reduction (use sparingly!), EQ, Compression, Loudness Targeting (LUFS standards).</li>
+            </ul>
+        </div>
+         <div class="guide-section">
+             <h4>IV. Publishing & Growth Strategy</h4>
+             <ul>
+                 <li><strong>Metadata & Artwork:</strong> Embed ID3 tags and cover art (min 1400x1400px).</li>
+                 <li><strong>Media Hosting:</strong> Buzzsprout, Libsyn, Podbean. They generate your RSS feed.</li>
+                 <li><strong>Directory Submission:</strong> Submit RSS to Apple Podcasts, Spotify, etc.</li>
+                 <li><strong>Promotion:</strong> Social media, clips, guesting. Consistency is crucial for growing a Nashville audience.</li>
+                 <li><strong>Nashville Podcast Community:</strong> Connect with local groups, attend meetups (check Nashville Entrepreneur Center, etc.).</li>
+             </ul>
+         </div>
+            <!-- *** LEAD CAPTURE MONSTER - Section 4: Guide-Specific CTA *** -->
+          <div class="inline-cta fade-in">
+              <h3>Ready to Launch Your Nashville Podcast?</h3>
+              <p>Download our FREE Podcast Launch Checklist, specifically designed for Nashville creators covering gear, software, and local resources!</p>
+              <a href="#lead-capture-podcast" class="cta-button">Get the Podcast Checklist</a>
+          </div>
+      </div>
+      <div id="podcast-setups" class="tab-content">
+        <h3>Example Nashville Podcast Setups</h3>
+        <!-- Content identical to previous good version, neutral terminology -->
+        <button class="accordion">Setup: Mobile Podcasting Rig (~$50-$150)</button>
+        <div class="panel">
+          <h4>Goal: Record anywhere, basic editing. Good for capturing interviews around Nashville.</h4>
+           <p><strong>Components:</strong> Smartphone, optional lav mic (Boya BY-M1), basic earbuds, free editing app (Ferrite/BandLab), quiet space.</p>
+           <p><strong>Notes:</strong> Lowest cost entry. Quality depends heavily on mic/environment.</p>
+        </div>
+         <button class="accordion">Setup: Home Studio Starter (USB) (~$150-$400)</button>
+         <div class="panel">
+            <h4>Goal: Good quality solo/duo recording from a Nashville home office.</h4>
+            <p><strong>Components:</strong> 1-2x USB Mics (Samson Q2U, Rode NT-USB Mini), closed-back headphones (ATH-M20x), desk stand(s), pop filter(s), basic DAW (Audacity/GarageBand/Reaper), some room treatment.</p>
+           <p><strong>Notes:</strong> Big quality step up. USB is simple. Dynamics good for typical rooms.</p>
+         </div>
+         <button class="accordion">Setup: Professional Studio Setup (XLR) (~$800-$2500+)</button>
+         <div class="panel">
+            <h4>Goal: Broadcast-grade audio for multiple people, ready for serious Nashville productions.</h4>
+           <p><strong>Components:</strong> 1-4x XLR Mics (Shure SM7B, EV RE20), optional Cloudlifter(s), Interface/Mixer (Focusrite Scarlett, RØDECaster Pro II), quality headphones (ATH-M50x), boom arms, pro DAW (Reaper/Audition/Logic), studio monitors, acoustic treatment.</p>
+           <p><strong>Notes:</strong> Maximum fidelity/flexibility. Requires investment & knowledge. Suitable for professional Nashville studios.</p>
+         </div>
+      </div>
+    </section>
+
+    <!-- STREAMERS -->
+    <section id="streamers" class="fade-in">
+      <div class="section-title">
+        <h2>Streaming Resources for Nashville</h2>
+      </div>
+       <p class="section-intro">Go live like a pro from Music City. Learn how to configure streaming software (OBS), choose the right camera and lighting, optimize your connection, and engage your Nashville audience effectively.</p>
+        <div class="tabs">
+        <button class="tab-btn active" data-tab="streamer-guide">Comprehensive Guide</button>
+        <button class="tab-btn" data-tab="streamer-setups">Example Setups</button>
+      </div>
+       <div id="streamer-guide" class="tab-content active">
+             <!-- Content identical to previous good version, neutral terminology, add Nashville keyword -->
+             <h3>The Nashville Streamer's Handbook</h3>
+            <div class="guide-section">
+                 <h4>I. Platform & Software Basics</h4>
+                <ul>
+                    <li><strong>Destinations:</strong> Twitch, YouTube Live, Facebook Gaming. Choose based on your content/audience.</li>
+                    <li><strong>Broadcasting Software:</strong> OBS Studio (Recommended: Free, powerful), Streamlabs Desktop, XSplit.</li>
+                    <li><strong>Key Settings:</strong> Resolution, Frame Rate (FPS), Bitrate (Vital for Nashville internet!), Encoder.</li>
+                     <li><strong>Encoder Choice:</strong> NVENC (NVIDIA) usually best. AMF (AMD). x264 (CPU).</li>
+                 </ul>
+             </div>
+             <div class="guide-section">
+                <h4>II. Audio/Visual Components</h4>
+                <ul>
+                    <li><strong>Video Sources:</strong> Webcam, Mirrorless/DSLR (via Capture Card), Screen Capture.</li>
+                    <li><strong>Audio Sources:</strong> Microphone, Desktop Audio, Music, Alerts. Use OBS mixer.</li>
+                    <li><strong>Lighting:</strong> Three-point lighting (Key, Fill, Backlight) for professional look. Soft, diffused light is key.</li>
+                    <li><strong>Overlays & Branding:</strong> Graphics for webcam, alerts, etc. Keep it clean. Use tools like StreamElements or buy assets. Reflect your Nashville brand!</li>
+                     <li><strong>Alerts & Interactivity:</strong> Visual/sound alerts, chat bots (moderation, commands).</li>
+                 </ul>
+            </div>
+            <div class="guide-section">
+                 <h4>III. Performance & Stability</h4>
+                 <ul>
+                    <li><strong>Internet:</strong> Wired Ethernet > Wi-Fi. Test upload speed. Bitrate ~70-80% of stable upload. Crucial for reliable streaming in Nashville.</li>
+                    <li><strong>PC Performance:</strong> Monitor CPU/GPU load. Close background apps. Adjust game settings if needed.</li>
+                    <li><strong>Audio/Video Sync:</strong> Use OBS sync offset filters if needed.</li>
+                     <li><strong>Dual PC Streaming:</strong> Offloads encoding for max game performance. Complex setup.</li>
+                 </ul>
+             </div>
+             <div class="guide-section">
+                 <h4>IV. Engagement & Local Growth</h4>
+                <ul>
+                    <li><strong>Content & Schedule:</strong> Be consistent. Interact with chat genuinely.</li>
+                    <li><strong>Scene Transitions:</strong> Use hotkeys/Stream Deck for smooth flow.</li>
+                    <li><strong>Networking:</strong> Raid other streamers, collaborate. Connect with the Nashville streaming community (local Discords, events).</li>
+                    <li><strong>Local Opportunities:</strong> Look for chances to collaborate with other Nashville creators or businesses.</li>
+                </ul>
+             </div>
+               <!-- *** LEAD CAPTURE MONSTER - Section 5: Guide-Specific CTA *** -->
+            <div class="inline-cta fade-in">
+              <h3>Boost Your Nashville Stream Quality!</h3>
+              <p>Download our FREE Streamer Pre-Flight Checklist – essential steps for smooth, high-quality streams from Nashville!</p>
+               <a href="#lead-capture-streamer" class="cta-button">Get the Streamer Checklist</a>
+            </div>
+       </div>
+       <div id="streamer-setups" class="tab-content">
+        <h3>Example Nashville Streamer Setups</h3>
+            <!-- Content identical to previous good version, neutral terminology -->
+            <button class="accordion">Setup: Console Streaming Starter (~$50-$250 + Console)</button>
+            <div class="panel">
+               <h4>Goal: Stream directly from console with basic camera/mic.</h4>
+               <p><strong>Components:</strong> PS5/Xbox Series X|S, optional console webcam, headset mic or compatible USB Mic (check console). Can use PC+Capture card later for OBS control.</p>
+               <p><strong>Notes:</strong> Easiest entry. Limited customization on console alone. Good mic helps most.</p>
+            </div>
+            <button class="accordion">Setup: Single PC Streaming Rig (~$500-$1500+ PC)</button>
+             <div class="panel">
+               <h4>Goal: Good quality stream & gameplay from one capable PC.</h4>
+               <p><strong>Components:</strong> Mid-range Gaming PC (Ryzen 5/7 or i5/i7, RTX 3060+/RX 6700XT+, 16GB+ RAM), quality webcam or Mirrorless+CamLink, Good USB/XLR Mic, basic Key light, OBS Studio.</p>
+                <p><strong>Notes:</strong> Common setup for PC gamers in Nashville. Balance PC power & OBS settings.</p>
+             </div>
+             <button class="accordion">Setup: Dual PC Professional Setup (~$1500-$4000+ Total PCs)</button>
+             <div class="panel">
+                 <h4>Goal: Maximize game performance and stream quality/complexity.</h4>
+                <p><strong>Components:</strong> High-end Gaming PC + moderate Streaming PC, Capture Card (Internal/External or NDI), Mirrorless cam on Stream PC, XLR Mic+Interface on Stream PC, multi-point lighting, Stream Deck.</p>
+                <p><strong>Notes:</strong> Pro standard. Isolates tasks. Requires investment, space, setup knowledge. Highest quality ceiling for serious Nashville streamers.</p>
+             </div>
+       </div>
+    </section>
+
+     <!-- GAMERS -->
+    <section id="gamers" class="fade-in">
+      <div class="section-title">
+        <h2>Gaming Setups for Nashville Players</h2>
+      </div>
+       <p class="section-intro">Build your ultimate gaming station in Music City. Optimize for competitive play, immersive experiences, or comfortable casual gaming with our guides on PCs, peripherals, and ergonomics.</p>
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="gamer-guide">Comprehensive Guide</button>
+            <button class="tab-btn" data-tab="gamer-setups">Example Setups</button>
+        </div>
+        <div id="gamer-guide" class="tab-content active">
+            <!-- Content identical to previous good version, neutral terminology, add Nashville keyword -->
+             <h3>The Nashville Gamer's Handbook</h3>
+             <div class="guide-section">
+                 <h4>I. Core System Choices</h4>
+                <ul>
+                     <li><strong>Platform:</strong> Desktop PC (Max performance/customization), Gaming Laptop (Portability), Console (Simplicity), Cloud Gaming (Needs fast Nashville internet).</li>
+                    <li><strong>PC Component Priority:</strong> GPU > CPU > RAM (16GB+) > Storage (NVMe SSD).</li>
+                    <li><strong>Cooling:</strong> Air Coolers vs. AIO Liquid Coolers. Case airflow is key.</li>
+                     <li><strong>Power Supply (PSU):</strong> Reputable brands (Corsair, Seasonic), sufficient wattage/efficiency.</li>
+                 </ul>
+             </div>
+             <div class="guide-section">
+                 <h4>II. Display & Input Devices</h4>
+                 <ul>
+                    <li><strong>Monitor:</strong> Balance Resolution (1080p/1440p/4K) vs. Refresh Rate (144Hz+ for smooth gameplay) vs. Panel Type (IPS/VA/TN). Adaptive Sync (G-Sync/FreeSync) important.</li>
+                    <li><strong>Keyboard:</strong> Mechanical switches (Linear/Tactile/Clicky). Layout preference.</li>
+                    <li><strong>Mouse:</strong> Sensor accuracy (DPI), Grip style, Weight, Wired/Wireless.</li>
+                     <li><strong>Audio:</strong> Gaming Headsets vs. Headphones + Mic. Open vs. Closed-back headphones.</li>
+                 </ul>
+             </div>
+             <div class="guide-section">
+                 <h4>III. Ergonomics & Environment</h4>
+                 <ul>
+                    <li><strong>Chair:</strong> Prioritize ergonomic office chairs for long sessions.</li>
+                     <li><strong>Desk & Layout:</strong> Proper monitor distance/height. Consider standing desks/monitor arms.</li>
+                    <li><strong>Cable Management:</strong> Keep your Nashville gaming space clean & organized.</li>
+                     <li><strong>Atmosphere:</strong> Controlled lighting (RGB/ambient), good ventilation.</li>
+                 </ul>
+            </div>
+              <div class="guide-section">
+                <h4>IV. Performance & Optimization</h4>
+                 <ul>
+                    <li><strong>Drivers:</strong> Keep GPU drivers updated.</li>
+                    <li><strong>In-Game Settings:</strong> Balance visual quality with target FPS.</li>
+                    <li><strong>OS Tweaks:</strong> Disable startup items, High Performance power plan, Game Mode.</li>
+                     <li><strong>Network (Online):</strong> Wired connection best. Check ping. Router QoS settings.</li>
+                 </ul>
+            </div>
+        </div>
+        <div id="gamer-setups" class="tab-content">
+             <h3>Example Nashville Gamer Setups</h3>
+              <!-- Content identical to previous good version, neutral terminology -->
+             <button class="accordion">Setup: Budget Gaming PC (~$600 - $1000 + Periphs)</button>
+             <div class="panel">
+                <h4>Goal: Solid 1080p gaming performance, excellent value.</h4>
+                <p><strong>Components:</strong> Entry-mid CPU (Ryzen 5 / Core i3-i5), Value GPU (RX 6600/RTX 3050/4060), 16GB RAM, 1TB NVMe SSD, 1080p 144Hz+ Monitor, budget mechanical keyboard/mouse/headset.</p>
+                <p><strong>Notes:</strong> Great starting point for PC gaming in Nashville. Runs esports/AAA titles well at 1080p.</p>
+             </div>
+             <button class="accordion">Setup: High-Performance Gaming Rig (~$1500 - $3000 + Periphs)</button>
+             <div class="panel">
+                <h4>Goal: High-fidelity 1440p or high-FPS 1080p gaming.</h4>
+                 <p><strong>Components:</strong> Mid-high CPU (Ryzen 7 / Core i5-i7), Strong GPU (RX 6800XT+/RTX 3070/4070+), 16-32GB RAM, 1-2TB NVMe SSD, 1440p 144Hz+ monitor or fast 1080p 240Hz+, quality keyboard/mouse/headset, ergonomic chair, monitor arm.</p>
+                <p><strong>Notes:</strong> Enthusiast level. Big visual/smoothness jump. Aesthetics often included.</p>
+            </div>
+             <button class="accordion">Setup: Elite Gaming Station (~$3500+ + Periphs)</button>
+             <div class="panel">
+                <h4>Goal: Max settings 4K gaming, premium experience.</h4>
+                <p><strong>Components:</strong> Top tier CPU (Ryzen 9 / Core i9), Flagship GPU (RTX 4090/RX 7900XTX+), 32GB+ RAM, 2TB+ NVMe SSD, Premium 4K 144Hz+ / High-end Ultrawide / OLED monitor, custom keyboard, flagship mouse, audiophile headphones+mic, high-end chair/desk.</p>
+                <p><strong>Notes:</strong> Cutting edge. No compromises. For ultimate performance and visuals.</p>
+             </div>
+        </div>
+    </section>
+
+     <!-- COMEDIANS -->
+     <section id="comedians" class="fade-in">
+      <div class="section-title">
+        <h2>Tech Resources for Nashville Comedians</h2>
+      </div>
+      <p class="section-intro">Record your sets, create killer clips, and analyze your performance. Find tech solutions for Nashville comedians, covering audio capture for stage and audience, simple video setups, and editing tips for stand-up.</p>
+      <div class="tabs">
+          <button class="tab-btn active" data-tab="comic-guide">Comprehensive Guide</button>
+          <button class="tab-btn" data-tab="comic-setups">Example Recording Rigs</button>
+       </div>
+       <div id="comic-guide" class="tab-content active">
+           <!-- Content identical to previous good version, neutral terminology, add Nashville keyword -->
+            <h3>The Nashville Comedian's Tech Handbook</h3>
+             <div class="guide-section">
+                 <h4>I. Capturing Audio: Voice & Room</h4>
+                 <ul>
+                    <li><strong>Goal:</strong> Clear comedian audio + clear audience reactions.</li>
+                     <li><strong>Venue Mic Feed:</strong> Ask Nashville venues (Zanies, Third Coast, etc.) for a line out from their board if possible. Gets main vocal.</li>
+                    <li><strong>Comedian Mic:</strong> Lavalier (wired/wireless) or Handheld Dynamic (if preferred stage mic).</li>
+                    <li><strong>Audience Mics:</strong> Vital for laughs! 1-2 Condenser mics (small diaphragm/boundary) pointed at crowd, recorded separately.</li>
+                    <li><strong>Recorder:</strong> Portable Multi-track Recorder (Zoom H4n/H5/H6, Tascam DR-40X) essential for separate tracks. Avoid relying on just phone audio.</li>
+                 </ul>
+             </div>
+             <div class="guide-section">
+                 <h4>II. Adding Video Simply</h4>
+                <ul>
+                    <li><strong>Purpose:</strong> Social clips, YouTube, reels, self-review.</li>
+                    <li><strong>Camera:</strong> Modern Smartphone, Mirrorless (Sony ZV-E10), Action Cam (GoPro). Consider low light capabilities in Nashville clubs!</li>
+                    <li><strong>Placement:</strong> Center back (wide), side angle (tight). Stable tripod. Get permission/don't block views.</li>
+                     <li><strong>Lighting:</strong> Often out of your control. Small battery LEDs *might* help fill if venue allows.</li>
+                    <li><strong>Audio Sync:</strong> Record audio separately! Clap clearly on camera/audio to sync in post.</li>
+                </ul>
+            </div>
+             <div class="guide-section">
+                 <h4>III. Editing for Impact</h4>
+                <ul>
+                     <li><strong>Software:</strong> Audio DAW (Audacity/Reaper), Video NLE (DaVinci Resolve Free, CapCut).</li>
+                     <li><strong>Audio Edit:</strong> Sync tracks. Balance comic voice vs. audience laughs. EQ voice for clarity. Gentle compression.</li>
+                    <li><strong>Video Edit:</strong> Sync angles to audio. Cut between shots effectively. Simple titles. Color correction helps consistency.</li>
+                    <li><strong>Export:</strong> Know aspect ratios (16:9 YouTube, 9:16 TikTok/Reels). Create audio snippets too.</li>
+                 </ul>
+             </div>
+             <div class="guide-section">
+                 <h4>IV. Nashville Scene & Self-Improvement</h4>
+                 <ul>
+                    <li><strong>Local Venues:</strong> Understand tech policies at specific Nashville comedy clubs & open mics. Ask first!</li>
+                    <li><strong>Clip Strategy:</strong> Best short jokes for social. Strongest ~5min reel for bookers/festivals. Quality focus.</li>
+                     <li><strong>Analyze Your Sets:</strong> Watch/listen back objectively to improve timing/delivery.</li>
+                     <li><strong>Community:</strong> Attend Nashville shows/workshops, connect with peers, share tech tips.</li>
+                 </ul>
+             </div>
+               <!-- *** LEAD CAPTURE MONSTER - Section 6: Guide-Specific CTA *** -->
+              <div class="inline-cta fade-in">
+                <h3>Want to Record Your Nashville Sets Better?</h3>
+                <p>Download our FREE Comedian Recording Quick Tips sheet – easy audio and video advice for capturing your best performances in Nashville clubs!</p>
+                <a href="#lead-capture-comedian" class="cta-button">Get the Recording Tips</a>
+             </div>
+       </div>
+       <div id="comic-setups" class="tab-content">
+           <h3>Example Nashville Comedy Recording Rigs</h3>
+             <!-- Content identical to previous good version, neutral terminology -->
+             <button class="accordion">Rig: Open Mic Audio Recorder (~$150 - $400)</button>
+            <div class="panel">
+               <h4>Goal: Decent audio for review/simple clips. Highly portable for Nashville open mics.</h4>
+               <p><strong>Components:</strong> Portable Stereo Recorder (Zoom H1n) OR Phone+External Mic input, maybe wired lav mic, small tripod for phone video.</p>
+                <p><strong>Notes:</strong> Very portable/affordable. Balancing comic/audience tricky.</p>
+            </div>
+            <button class="accordion">Rig: Multi-Track Field Recorder (~$400 - $1000)</button>
+             <div class="panel">
+               <h4>Goal: Reliable multi-track audio (comic + audience) + good video.</h4>
+               <p><strong>Components:</strong> 4-Track Recorder (Zoom H4n/H5), Lav Mic OR Board Feed, 1-2 Audience Mics (Condensers), Mirrorless/Action Cam, tripod, cables.</p>
+               <p><strong>Notes:</strong> Big audio improvement with separate tracks. More control in post. Needs setup time.</p>
+             </div>
+             <button class="accordion">Rig: Pro Showcase Setup (~$1000 - $3000+)</button>
+            <div class="panel">
+               <h4>Goal: Broadcast/submission quality multi-cam video & clean multi-track audio.</h4>
+               <p><strong>Components:</strong> 6+ Track Recorder (Zoom H6/F6) or Interface/Laptop, Wireless Lav or Premium Handheld, 2-4 Audience Mics, 2-3 Mirrorless cams, optional lighting, sturdy supports, maybe dedicated operators.</p>
+                <p><strong>Notes:</strong> Professional quality for specials/reels. Significant investment/planning/expertise.</p>
+            </div>
+        </div>
+    </section>
+
+     <!-- *** LEAD CAPTURE MONSTER - Section 7: Dedicated Resource Download Forms *** -->
+     <!-- These sections can be targeted by the inline CTA buttons using href="#id" -->
+     <section id="lead-capture-hardware" class="lead-capture-section fade-in" aria-labelledby="hardware-heading">
+       <h3 id="hardware-heading">Download: Nashville Creator Hardware Checklist</h3>
+       <p>Get your free checklist covering essential gear recommendations for various budgets and creator types in Nashville.</p>
+       <form action="#" method="POST">
+         <label for="hardware-name">Your Name</label>
+         <input type="text" id="hardware-name" name="name" required>
+         <label for="hardware-email">Your Email</label>
+         <input type="email" id="hardware-email" name="email" required>
+         <input type="hidden" name="lead_magnet" value="hardware_checklist_nashville">
+         <button type="submit" class="cta-button">Download Now</button>
+       </form>
+     </section>
+
+      <section id="lead-capture-software" class="lead-capture-section fade-in" aria-labelledby="software-heading">
+       <h3 id="software-heading">Download: OBS Quick Start Guide (Nashville Optimized)</h3>
+       <p>Grab your free guide to setting up OBS Studio for stable, high-quality streaming in the Nashville area.</p>
+        <form action="#" method="POST">
+         <label for="software-name">Your Name</label>
+         <input type="text" id="software-name" name="name" required>
+         <label for="software-email">Your Email</label>
+         <input type="email" id="software-email" name="email" required>
+         <input type="hidden" name="lead_magnet" value="obs_guide_nashville">
+         <button type="submit" class="cta-button">Download Now</button>
+       </form>
+     </section>
+
+      <section id="lead-capture-podcast" class="lead-capture-section fade-in" aria-labelledby="podcast-heading">
+        <h3 id="podcast-heading">Download: Nashville Podcast Launch Checklist</h3>
+        <p>Start your Nashville podcast right! Get the free checklist covering gear, software, local tips, and more.</p>
+        <form action="#" method="POST">
+         <label for="podcast-name">Your Name</label>
+         <input type="text" id="podcast-name" name="name" required>
+         <label for="podcast-email">Your Email</label>
+         <input type="email" id="podcast-email" name="email" required>
+         <input type="hidden" name="lead_magnet" value="podcast_checklist_nashville">
+         <button type="submit" class="cta-button">Download Now</button>
+       </form>
+     </section>
+
+      <section id="lead-capture-streamer" class="lead-capture-section fade-in" aria-labelledby="streamer-heading">
+        <h3 id="streamer-heading">Download: Streamer Pre-Flight Checklist (Nashville)</h3>
+        <p>Ensure smooth streams every time! Get the free checklist for Nashville streamers covering tech checks and setup steps.</p>
+       <form action="#" method="POST">
+         <label for="streamer-name">Your Name</label>
+         <input type="text" id="streamer-name" name="name" required>
+         <label for="streamer-email">Your Email</label>
+         <input type="email" id="streamer-email" name="email" required>
+          <input type="hidden" name="lead_magnet" value="streamer_checklist_nashville">
+         <button type="submit" class="cta-button">Download Now</button>
+       </form>
+     </section>
+
+      <section id="lead-capture-comedian" class="lead-capture-section fade-in" aria-labelledby="comedian-heading">
+        <h3 id="comedian-heading">Download: Comedy Recording Quick Tips (Nashville)</h3>
+        <p>Capture your best sets! Get free, practical audio and video recording tips for comedians performing in Nashville.</p>
+       <form action="#" method="POST">
+         <label for="comedian-name">Your Name</label>
+         <input type="text" id="comedian-name" name="name" required>
+         <label for="comedian-email">Your Email</label>
+         <input type="email" id="comedian-email" name="email" required>
+          <input type="hidden" name="lead_magnet" value="comedy_tips_nashville">
+         <button type="submit" class="cta-button">Download Now</button>
+       </form>
+      </section>
+
+
+    <!-- Contact Section -->
+    <section id="connect" class="fade-in"> <!-- Changed ID to "connect" -->
+      <div class="section-title">
+         <h2>Connect with Pixel Playgrounds Nashville</h2>
+      </div>
+      <p class="section-intro">Have questions about your specific setup? Interested in a consultation or collaboration in Nashville? Reach out!</p>
+      <div class="contact-grid">
+        <div class="contact-item">
+           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.62,10.79C8.06,13.62,10.38,15.94,13.21,17.38l2.2-2.2a1,1,0,0,1,1-.27,10.05,10.05,0,0,0,3.17.51,1,1,0,0,1,1,1V20a1,1,0,0,1-1,1A16,16,0,0,1,3,5a1,1,0,0,1,1-1H7a1,1,0,0,1,1,1,10.05,10.05,0,0,0,.51,3.17,1,1,0,0,1-.27,1Z"/></svg>
+          <p><strong>Call Us:</strong><br>(615) 606-4969</p>
+        </div>
+        <div class="contact-item">
+           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20,4H4A2,2,0,0,0,2,6V18a2,2,0,0,0,2,2H20a2,2,0,0,0,2-2V6A2,2,0,0,0,20,4Zm0,4-8,5-8-5V6l8,5,8-5Z"/></svg>
+           <p><strong>Email Us:</strong><br>ppnashville@icloud.com</p> <!-- Direct email -->
+        </div>
+        <div class="contact-item">
+           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.17.053 1.905.24 2.445.448.695.27 1.227.643 1.75 1.167s.898 1.055 1.168 1.75c.208.54.397 1.274.45 2.445.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.053 1.17-.24 1.906-.448 2.446a4.926 4.926 0 0 1-1.168 1.75 4.926 4.926 0 0 1-1.75 1.168c-.54.208-1.274.396-2.445.448-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.17-.053-1.906-.24-2.446-.448a4.926 4.926 0 0 1-1.75-1.168 4.926 4.926 0 0 1-1.168-1.75c-.208-.54-.396-1.274-.448-2.446-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.053 1.17.24-1.906.448-2.446.27-.695.643-1.227 1.168-1.75S5.05 2.877 5.745 2.607c.54-.208 1.274-.397 2.446-.45C9.46 2.175 9.84 2.163 12 2.163m0-2.163C8.74 0 8.333.01 7.053.072 5.775.132 4.705.33 3.77.72 2.78 1.13 1.956 1.77.95 2.775.55 3.7.345 4.772.28 6.053.22 7.333.21 7.74.21 12s.01 4.667.072 5.947c.06 1.28.266 2.352.72 3.277.49 1.007 1.13 1.83 2.137 2.837.945.948 1.77 1.59 2.777 1.995.926.456 1.996.658 3.278.718 1.28.06 1.687.072 4.947.072s3.667-.01 4.947-.072c1.28-.06 2.35-.262 3.277-.718 1.006-.406 1.83-1.047 2.836-1.995.947-.948 1.59-1.77 1.995-2.777.455-.925.658-1.997.718-3.277.06-1.28.072-1.687.072-4.947s-.01-3.667-.072-4.947c-.06-1.28-.262-2.35-.718-3.277C21.948 1.77 21.308 1.13 20.3 0.72 19.375.33 18.305.132 17.027.072 15.747.01 15.34 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a3.998 3.998 0 1 1 0-7.996 3.998 3.998 0 0 1 0 7.996zm6.406-11.845a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"/>
+            </svg>
+          <p><strong>Follow Us:</strong><br><a href="https://www.instagram.com/pixelplaygroundsnashville/" target="_blank" rel="noopener noreferrer">@pixelplaygroundsnashville</a></p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <p>© <span id="current-year"></span> Pixel Playgrounds Nashville. Supporting Music City Creators.</p>
+    <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p> <!-- Replace # -->
+  </footer>
+
+  <script>
+    // Set current year
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+
+    // --- Accordion ---
+    const accordions = document.querySelectorAll(".accordion");
+    accordions.forEach(acc => {
+      acc.addEventListener("click", function() {
+        this.classList.toggle("active");
+        const panel = this.nextElementSibling;
+        if (panel.style.maxHeight) {
+          panel.style.maxHeight = null; panel.style.paddingTop = "0"; panel.style.paddingBottom = "0";
+        } else {
+          panel.style.paddingTop = "15px"; panel.style.paddingBottom = "15px"; panel.style.maxHeight = panel.scrollHeight + "px";
+        }
+      });
+    });
+
+    // --- Tabs ---
+    const tabContainers = document.querySelectorAll('.tabs');
+    tabContainers.forEach(container => {
+        const buttons = container.querySelectorAll('.tab-btn');
+        const contentBlocks = container.parentElement.querySelectorAll('.tab-content');
+        buttons.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const tabId = this.getAttribute('data-tab');
+                buttons.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                contentBlocks.forEach(tc => { tc.classList.remove('active'); if (tc.getAttribute('id') === tabId) tc.classList.add('active'); });
+            });
+        });
+    });
+
+    // --- Fade-In on Scroll ---
+    const faders = document.querySelectorAll('.fade-in');
+    const appearOptions = { threshold: 0.1, rootMargin: "0px 0px -40px 0px" }; // Adjusted for earlier trigger
+    const appearOnScroll = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      });
+    }, appearOptions);
+    faders.forEach(fader => appearOnScroll.observe(fader));
+
+    // --- Particle Animation --- (No changes needed here, kept for design)
+    const canvas = document.getElementById("particle-canvas"); const ctx = canvas.getContext("2d"); let particles = []; const particleCount = window.innerWidth > 768 ? 150 : 80; let animationFrameId;
+    canvas.width = window.innerWidth; canvas.height = window.innerHeight;
+    class Particle { constructor() { this.x = Math.random()*canvas.width; this.y = Math.random()*canvas.height; this.size = Math.random()*2.5+0.5; this.baseSpeed = 0.5; this.speedX = (Math.random()-0.5)*this.baseSpeed*2; this.speedY = (Math.random()-0.5)*this.baseSpeed*2; this.color = `rgba(0, 255, 255, ${Math.random()*0.6+0.2})`; } update() { this.x += this.speedX; this.y += this.speedY; if(this.x<-this.size) this.x=canvas.width+this.size; if(this.x>canvas.width+this.size) this.x=-this.size; if(this.y<-this.size) this.y=canvas.height+this.size; if(this.y>canvas.height+this.size) this.y=-this.size; } draw() { ctx.fillStyle = this.color; ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI*2); ctx.fill(); } }
+    function connectParticles() { let opacityValue=1; for(let a=0; a<particles.length; a++) { for(let b=a; b<particles.length; b++) { let distance = Math.sqrt(Math.pow(particles[a].x-particles[b].x, 2)+Math.pow(particles[a].y-particles[b].y, 2)); if(distance<(canvas.width/10)) { opacityValue=1-(distance/(canvas.width/10)); ctx.strokeStyle = `rgba(0, 255, 255, ${opacityValue*0.2})`; ctx.lineWidth = 0.5; ctx.beginPath(); ctx.moveTo(particles[a].x, particles[a].y); ctx.lineTo(particles[b].x, particles[b].y); ctx.stroke(); }}}}
+    function initParticles() { particles = []; const count = window.innerWidth > 768 ? 150 : 70; for (let i=0; i<count; i++) particles.push(new Particle()); }
+    function animateParticles() { ctx.clearRect(0, 0, canvas.width, canvas.height); particles.forEach(p => { p.update(); p.draw(); }); connectParticles(); animationFrameId = requestAnimationFrame(animateParticles); }
+    function handleResize() { canvas.width = window.innerWidth; canvas.height = Math.max(document.body.scrollHeight, window.innerHeight); cancelAnimationFrame(animationFrameId); initParticles(); animateParticles(); }
+    initParticles(); animateParticles(); let resizeTimer; window.addEventListener("resize", ()=>{ clearTimeout(resizeTimer); resizeTimer = setTimeout(handleResize, 150); }); window.addEventListener('load', handleResize); handleResize();
+
+    // --- Smooth scroll for internal CTA links ---
+    document.querySelectorAll('a[href^="#lead-capture-"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            if(targetElement) {
+                targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                // Optional: Briefly highlight the section
+                 targetElement.style.transition = 'outline 0.2s ease-in-out';
+                 targetElement.style.outline = '2px solid var(--cta-button)';
+                 setTimeout(() => {
+                     targetElement.style.outline = 'none';
+                 }, 1500);
+            }
+        });
+    });
+
+  </script>
+</body>
+</html>
